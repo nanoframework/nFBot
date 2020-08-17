@@ -1,0 +1,6 @@
+{
+  "prefix": "!",
+  "token": "<BOT TOKEN HERE>",
+  "status_text": "!help | nFAQ",
+  "admin_role_id": 123456789012345678
+}
