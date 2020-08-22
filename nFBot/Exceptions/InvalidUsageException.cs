@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nFAQ.Exceptions
+namespace nFBot.Exceptions
 {
     public class InvalidUsageException : Exception
     {

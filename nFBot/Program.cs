@@ -8,11 +8,11 @@ using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using nFAQ.Handlers;
-using nFAQ.Jobs;
-using nFAQ.Modules;
+using nFBot.Handlers;
+using nFBot.Jobs;
+using nFBot.Modules;
 
-namespace nFAQ
+namespace nFBot
 {
     class Program
     {

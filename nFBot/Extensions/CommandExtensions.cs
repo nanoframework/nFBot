@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using DSharpPlus.CommandsNext;
-using nFAQ.Attributes;
+using nFBot.Attributes;
 
-namespace nFAQ.Extensions
+namespace nFBot.Extensions
 {
     public static class CommandExtensions
     {

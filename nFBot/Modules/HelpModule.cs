@@ -1,6 +1,6 @@
 ﻿using DSharpPlus.CommandsNext;
 
-namespace nFAQ.Modules
+namespace nFBot.Modules
 {
     public class HelpModule : BaseCommandModule
     {

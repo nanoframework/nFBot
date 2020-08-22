@@ -3,9 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
-using nFAQ.Extensions;
+using nFBot.Extensions;
 
-namespace nFAQ.Modules
+namespace nFBot.Modules
 {
     public class AdminModule : BaseCommandModule
     {

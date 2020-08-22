@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
-using nFAQ.Attributes;
+using nFBot.Attributes;
 
 
-namespace nFAQ.Modules
+namespace nFBot.Modules
 {
     public class FaqModule : BaseCommandModule
     {

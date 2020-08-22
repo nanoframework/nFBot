@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.Entities;
 
-namespace nFAQ.Jobs
+namespace nFBot.Jobs
 {
     public static class StatusJob
     {

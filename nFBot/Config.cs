@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace nFAQ
+namespace nFBot
 {
     public class Config
     {

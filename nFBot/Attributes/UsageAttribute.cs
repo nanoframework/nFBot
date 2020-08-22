@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nFAQ.Attributes
+namespace nFBot.Attributes
 {
     public class UsageAttribute : Attribute
     {
