@@ -2,12 +2,13 @@
 using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.Entities;
+using nFBot.Core.Configuration;
 
 namespace nFBot.Jobs
 {
     public static class StatusJob
     {
-        public static async Task JobTask(Config config, DiscordClient discord)
+        public static async Task JobTask(FinalConfig config, DiscordClient discord)
         {
             while (true)
             {

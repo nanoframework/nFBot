@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using nFBot.Core.Configuration;
+using nFBot.Core.Data;
+using nFBot.Core.Providers;
 using nFBot.Handlers;
 using nFBot.Jobs;
 using nFBot.Modules;
@@ -18,15 +22,25 @@ namespace nFBot
     {
         private static DiscordClient _discord;
         private static CommandsNextExtension _commands;
-        private static Config _config;
+        private static LoadedConfig _loadedConfig;
 
+        private static readonly FinalConfig _config = new FinalConfig();
         private static readonly ServiceCollection ServiceCollection = new ServiceCollection();
 
+        public static bool IsReleaseMode()
+        {
+            #if DEBUG
+            return false;
+            #else
+            return true;
+            #endif
+        }
+        
         static void Main(string[] args)
         {
             try
             {
-                _config = JsonConvert.DeserializeObject<Config>(File.ReadAllText("./config.json"));
+                _loadedConfig = JsonConvert.DeserializeObject<LoadedConfig>(File.ReadAllText("./config.json"));
             }
             catch
             {
@@ -39,6 +53,55 @@ namespace nFBot
                 Console.ReadLine();
 
                 Environment.Exit(1);
+            }
+
+            _config.Prefix = _loadedConfig.Prefix;
+            _config.StatusText = _loadedConfig.StatusText;
+            _config.StorageMode = _loadedConfig.StorageMode;
+            _config.AdminRoleId = _loadedConfig.AdminRoleId;
+
+            if (IsReleaseMode())
+            {
+                _config.Token = "";
+                _config.StorageConnectionString = "";
+            }
+            else
+            {
+                _config.Token = _loadedConfig.DebugToken;
+                _config.StorageConnectionString = _loadedConfig.DebugStorageConnectionString;
+            }
+
+            switch (_config.StorageMode)
+            {
+                case "mysql":
+                    ServiceCollection.AddDbContext<FaqDbContext>(builder =>
+                    {
+                        builder.UseMySql(_config.StorageConnectionString);
+                    });
+
+                    ServiceCollection.AddTransient<IFaqProvider, DatabaseFaqProvider>();
+                    
+                    break;
+                
+                case "mssql":
+                    ServiceCollection.AddDbContext<FaqDbContext>(builder =>
+                    {
+                        builder.UseSqlServer(_config.StorageConnectionString);
+                    });
+
+                    ServiceCollection.AddTransient<IFaqProvider, DatabaseFaqProvider>();
+                    
+                    break;
+                
+                default:
+                    Console.WriteLine("Invalid storage mode selected. Refer to README for valid modes");
+                    Console.WriteLine();
+                    Console.WriteLine("Press enter to continue");
+
+                    Console.ReadLine();
+
+                    Environment.Exit(1);
+                    break;
             }
 
             MainAsync(args).ConfigureAwait(false).GetAwaiter().GetResult();
@@ -60,7 +123,7 @@ namespace nFBot
             {
                 StringPrefixes = new List<string>
                 {
-                    _config.Prefix
+                    _loadedConfig.Prefix
                 },
                 EnableMentionPrefix = true,
                 Services = ServiceCollection.BuildServiceProvider(),

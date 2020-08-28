@@ -1,6 +1,9 @@
 {
   "prefix": "!",
-  "token": "<BOT TOKEN HERE>",
+  "debug_token": "<BOT TOKEN HERE>",
   "status_text": "!help | nFBot",
-  "admin_role_id": 123456789012345678
+  "admin_role_id": 123456789012345678,
+
+  "storage_mode": "azuretables",
+  "debug_storage_connection_string": ""
 }
