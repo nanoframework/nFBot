@@ -36,7 +36,7 @@ namespace nFBot.Modules
             Environment.Exit(0);
         }
         
-        [Command("dbmigrate")]
+        /*[Command("dbmigrate")]
         public async Task DbMigrate(CommandContext ctx, [RemainingText] string extra)
         {
             if (ctx.Member.Roles.All(r => r.Id != _config.AdminRoleId))
@@ -90,6 +90,6 @@ namespace nFBot.Modules
                     await ctx.RespondAsync("A database migration is not applicable for the configured storage mode");
                     break;
             }
-        }
+        }*/
     }
 }
