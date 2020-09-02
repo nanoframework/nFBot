@@ -62,8 +62,8 @@ namespace nFBot
 
             if (IsReleaseMode())
             {
-                _config.Token = "";
-                _config.StorageConnectionString = "";
+                _config.Token = Environment.GetEnvironmentVariable("token");
+                _config.StorageConnectionString = Environment.GetEnvironmentVariable("storage_connection_string");
             }
             else
             {
@@ -134,7 +134,7 @@ namespace nFBot
             _commands.CommandErrored += CommandErroredUsageHandler.Handle;
 
             _commands.RegisterCommands<AdminModule>();
-            //_commands.RegisterCommands<HelpModule>();
+            _commands.RegisterCommands<HelpModule>();
             _commands.RegisterCommands<FaqModule>();
 
             _discord.Ready += InitialStart;
