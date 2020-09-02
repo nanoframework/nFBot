@@ -12,6 +12,9 @@ namespace nFBot.Core.Configuration
 
         [JsonProperty("status_text", Required = Required.Always)]
         public string StatusText { get; set; }
+        
+        [JsonProperty("welcome_message", Required = Required.Always)]
+        public string WelcomeMessage { get; set; }
 
         [JsonProperty("admin_role_id", Required = Required.Always)]
         public ulong AdminRoleId { get; set; }

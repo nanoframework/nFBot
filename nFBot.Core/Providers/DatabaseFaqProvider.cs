@@ -19,7 +19,7 @@ namespace nFBot.Core.Providers
         
         public async Task<Faq> GetFaqByTag(string tag)
         {
-           FaqEntity faq =  await _db.Faq.FirstOrDefaultAsync(f => String.Equals(f.Tag, tag, StringComparison.CurrentCultureIgnoreCase));
+           FaqEntity faq =  await _db.Faq.FirstOrDefaultAsync(f => f.Tag.ToLower() == tag);
 
            if (faq == null) return null;
            
@@ -49,7 +49,7 @@ namespace nFBot.Core.Providers
 
         public async Task DeleteFaq(string tag)
         {
-            FaqEntity faq =  await _db.Faq.FirstOrDefaultAsync(f => String.Equals(f.Tag, tag, StringComparison.CurrentCultureIgnoreCase));
+            FaqEntity faq =  await _db.Faq.FirstOrDefaultAsync(f => f.Tag.ToLower() == tag);
 
             if (faq == null) return;
 

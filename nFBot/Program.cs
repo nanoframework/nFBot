@@ -57,6 +57,7 @@ namespace nFBot
 
             _config.Prefix = _loadedConfig.Prefix;
             _config.StatusText = _loadedConfig.StatusText;
+            _config.WelcomeMessage = _loadedConfig.WelcomeMessage;
             _config.StorageMode = _loadedConfig.StorageMode;
             _config.AdminRoleId = _loadedConfig.AdminRoleId;
 
@@ -136,12 +137,19 @@ namespace nFBot
             _commands.RegisterCommands<AdminModule>();
             _commands.RegisterCommands<HelpModule>();
             _commands.RegisterCommands<FaqModule>();
+            
+            _discord.GuildMemberAdded += DiscordOnGuildMemberAdded;
 
             _discord.Ready += InitialStart;
 
             await _discord.ConnectAsync();
 
             await Task.Delay(-1);
+        }
+
+        private static async Task DiscordOnGuildMemberAdded(GuildMemberAddEventArgs e)
+        {
+            await e.Member.SendMessageAsync(_config.WelcomeMessage);
         }
 
         private static readonly AsyncEventHandler<ReadyEventArgs> InitialStart = async e =>

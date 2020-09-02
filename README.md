@@ -11,6 +11,8 @@ nFBot is configured by the `config.json` which is included with default values. 
 
 - `status_text` - This is the text to display as "Playing" on Discord.
 
+- `welcome_message` - This is the text sent via DM to the user when they join the server.
+
 - `admin_role_id` - This is the Discord Snowflake ID representing the role assigned to users who have access to administrative operations on the bot, such as shutting it down.
 
 - `storage_mode` - This sets what mode to use for storing data. The `debug_storage_connection_string` property in Debug builds and `storage_connection_string` environment variable in Release builds will be used to connect to the specified storage mode, and therefore this value must be defined properly. Valid values for this configuration option are as follows: `mysql`, `mssql`
