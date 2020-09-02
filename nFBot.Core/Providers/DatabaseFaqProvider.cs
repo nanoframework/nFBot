@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using nFBot.Core.Data;
 using nFBot.Core.Entities;
 using nFBot.Core.Models;
@@ -15,9 +17,9 @@ namespace nFBot.Core.Providers
             _db = db;
         }
         
-        public Faq GetFaqByTag(string tag)
+        public async Task<Faq> GetFaqByTag(string tag)
         {
-           FaqEntity faq =  _db.Faq.FirstOrDefault(f => String.Equals(f.Tag, tag, StringComparison.CurrentCultureIgnoreCase));
+           FaqEntity faq =  await _db.Faq.FirstOrDefaultAsync(f => String.Equals(f.Tag, tag, StringComparison.CurrentCultureIgnoreCase));
 
            if (faq == null) return null;
            
@@ -30,7 +32,7 @@ namespace nFBot.Core.Providers
            };
         }
 
-        public void CreateFaq(Faq faq)
+        public async Task CreateFaq(Faq faq)
         {
             FaqEntity newFaq = new FaqEntity
             {
@@ -40,9 +42,20 @@ namespace nFBot.Core.Providers
                 Tag = faq.Tag
             };
 
-            _db.Add(newFaq);
+            await _db.AddAsync(newFaq);
 
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task DeleteFaq(string tag)
+        {
+            FaqEntity faq =  await _db.Faq.FirstOrDefaultAsync(f => String.Equals(f.Tag, tag, StringComparison.CurrentCultureIgnoreCase));
+
+            if (faq == null) return;
+
+            _db.Faq.Remove(faq);
+
+            await _db.SaveChangesAsync();
         }
     }
 }

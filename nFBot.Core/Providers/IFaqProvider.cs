@@ -1,10 +1,12 @@
-﻿using nFBot.Core.Models;
+﻿using System.Threading.Tasks;
+using nFBot.Core.Models;
 
 namespace nFBot.Core.Providers
 {
     public interface IFaqProvider
     {
-        Faq GetFaqByTag(string tag);
-        void CreateFaq(Faq faq);
+        Task<Faq> GetFaqByTag(string tag);
+        Task CreateFaq(Faq faq);
+        Task DeleteFaq(string tag);
     }
 }
