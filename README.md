@@ -1,6 +1,8 @@
-# nFBot - nanoFramework Discord Bot
 
-nFBot is the nanoFramework Discord bot used for various operatons including FAQ tagging.
+
+### Welcome to the **nanoFramework** nFBot repository!
+
+nFBot is the **nanoFramework** Discord bot used for various operations including FAQ tagging.
 
 ## Configuration
 nFBot is configured by the `config.json` which is included with default values. You may also refer to the `config.example.json` file in the case that you need to see the original values of elements.
@@ -21,3 +23,12 @@ nFBot is configured by the `config.json` which is included with default values. 
 
 ## Deployment
 The nFBot is designed to be deployed on Azure as a continuous WebJob.
+
+## License
+
+The **nanoFramework** Class Libraries are licensed under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
+
+## Code of Conduct
+
+This project has adopted the code of conduct defined by the [Contributor Covenant](http://contributor-covenant.org/)
+to clarify expected behavior in our community.
