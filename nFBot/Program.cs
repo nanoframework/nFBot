@@ -1,20 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
+﻿//
+// Copyright (c) 2020 The nanoFramework project contributors
+// See LICENSE file in the project root for full license information.
+//
+
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using nanoFramework.Tools.nFBot.Core.Configuration;
 using nanoFramework.Tools.nFBot.Core.Data;
 using nanoFramework.Tools.nFBot.Core.Providers;
 using nanoFramework.Tools.nFBot.Handlers;
-using nanoFramework.Tools.nFBot.Modules;
 using nanoFramework.Tools.nFBot.Jobs;
+using nanoFramework.Tools.nFBot.Modules;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace nanoFramework.Tools.nFBot
 {

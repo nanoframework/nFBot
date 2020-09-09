@@ -1,13 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using DSharpPlus;
+﻿//
+// Copyright (c) 2020 The nanoFramework project contributors
+// See LICENSE file in the project root for full license information.
+//
+
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
-using Microsoft.EntityFrameworkCore;
 using nanoFramework.Tools.nFBot.Core.Configuration;
-using nanoFramework.Tools.nFBot.Core.Data;
 using nanoFramework.Tools.nFBot.Extensions;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace nanoFramework.Tools.nFBot.Modules
 {

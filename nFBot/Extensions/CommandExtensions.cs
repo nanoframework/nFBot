@@ -1,6 +1,11 @@
-﻿using System.Linq;
+﻿//
+// Copyright (c) 2020 The nanoFramework project contributors
+// See LICENSE file in the project root for full license information.
+//
+
 using DSharpPlus.CommandsNext;
 using nanoFramework.Tools.nFBot.Attributes;
+using System.Linq;
 
 namespace nanoFramework.Tools.nFBot.Extensions
 {

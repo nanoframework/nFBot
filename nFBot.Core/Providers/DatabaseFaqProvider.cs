@@ -1,10 +1,14 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿//
+// Copyright (c) 2020 The nanoFramework project contributors
+// See LICENSE file in the project root for full license information.
+//
+
 using Microsoft.EntityFrameworkCore;
 using nanoFramework.Tools.nFBot.Core.Data;
 using nanoFramework.Tools.nFBot.Core.Entities;
 using nanoFramework.Tools.nFBot.Core.Models;
+using System;
+using System.Threading.Tasks;
 
 namespace nanoFramework.Tools.nFBot.Core.Providers
 {

@@ -1,8 +1,13 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
+﻿//
+// Copyright (c) 2020 The nanoFramework project contributors
+// See LICENSE file in the project root for full license information.
+//
+
 using DSharpPlus;
 using DSharpPlus.Entities;
 using nanoFramework.Tools.nFBot.Core.Configuration;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace nanoFramework.Tools.nFBot.Jobs
 {

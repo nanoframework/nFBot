@@ -1,4 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿//
+// Copyright (c) 2020 The nanoFramework project contributors
+// See LICENSE file in the project root for full license information.
+//
+
+using Newtonsoft.Json;
 
 namespace nanoFramework.Tools.nFBot.Core.Configuration
 {

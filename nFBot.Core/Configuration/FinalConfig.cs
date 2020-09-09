@@ -1,4 +1,9 @@
-﻿namespace nanoFramework.Tools.nFBot.Core.Configuration
+﻿//
+// Copyright (c) 2020 The nanoFramework project contributors
+// See LICENSE file in the project root for full license information.
+//
+
+namespace nanoFramework.Tools.nFBot.Core.Configuration
 {
     public class FinalConfig
     {
