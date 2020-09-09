@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nFBot", "nFBot\nFBot.csproj", "{4252E485-2CD8-4D51-A3B6-2A58BCF3442D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nFBot", "nFBot\nFBot.csproj", "{4252E485-2CD8-4D51-A3B6-2A58BCF3442D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nFBot.Core", "nFBot.Core\nFBot.Core.csproj", "{B26C8281-566A-4815-A349-F6C03C3884E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nFBot.Core", "nFBot.Core\nFBot.Core.csproj", "{B26C8281-566A-4815-A349-F6C03C3884E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C369F1B7-E110-4654-AF74-8F9BC5254EE4}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.Config = NuGet.Config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
