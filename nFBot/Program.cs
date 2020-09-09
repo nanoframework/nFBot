@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace nanoFramework.Tools.nFBot
 {
-    class Program
+    public class Program
     {
         private static DiscordClient _discord;
         private static CommandsNextExtension _commands;
@@ -41,7 +41,7 @@ namespace nanoFramework.Tools.nFBot
             #endif
         }
         
-        static void Main(string[] args)
+        static void Main()
         {
             try
             {
@@ -110,10 +110,10 @@ namespace nanoFramework.Tools.nFBot
                     break;
             }
 
-            MainAsync(args).ConfigureAwait(false).GetAwaiter().GetResult();
+            MainAsync().ConfigureAwait(false).GetAwaiter().GetResult();
         }
 
-        private static async Task MainAsync(string[] args)
+        private static async Task MainAsync()
         {
             ServiceCollection.AddSingleton(_config);
 

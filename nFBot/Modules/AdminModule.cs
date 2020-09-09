@@ -15,12 +15,10 @@ namespace nanoFramework.Tools.nFBot.Modules
 {
     public class AdminModule : BaseCommandModule
     {
-        private readonly IServiceProvider _services;
         private readonly FinalConfig _config;
 
-        public AdminModule(IServiceProvider services, FinalConfig config)
+        public AdminModule(FinalConfig config)
         {
-            _services = services;
             _config = config;
         }
 
