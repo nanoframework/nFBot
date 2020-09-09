@@ -7,7 +7,10 @@ using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using nanoFramework.Tools.nFBot.Core.Configuration;
 using nanoFramework.Tools.nFBot.Core.Data;
 using nanoFramework.Tools.nFBot.Core.Providers;
@@ -25,6 +28,8 @@ namespace nanoFramework.Tools.nFBot
 {
     public class Program
     {
+        private static string s_WelcomeMessage = "Welcome to nanoFramework! You can use the !help command for information on what I am able to do for you!";
+
         private static DiscordClient _discord;
         private static CommandsNextExtension _commands;
         private static LoadedConfig _loadedConfig;
@@ -40,9 +45,10 @@ namespace nanoFramework.Tools.nFBot
             return true;
             #endif
         }
-        
-        static void Main()
+
+        public static async Task Main(string[] args)
         {
+
             try
             {
                 _loadedConfig = JsonConvert.DeserializeObject<LoadedConfig>(File.ReadAllText("./config.json"));
@@ -86,9 +92,9 @@ namespace nanoFramework.Tools.nFBot
                     });
 
                     ServiceCollection.AddTransient<IFaqProvider, DatabaseFaqProvider>();
-                    
+
                     break;
-                
+
                 case "mssql":
                     ServiceCollection.AddDbContext<FaqDbContext>(builder =>
                     {
@@ -96,9 +102,9 @@ namespace nanoFramework.Tools.nFBot
                     });
 
                     ServiceCollection.AddTransient<IFaqProvider, DatabaseFaqProvider>();
-                    
+
                     break;
-                
+
                 default:
                     Console.WriteLine("Invalid storage mode selected. Refer to README for valid modes");
                     Console.WriteLine();
@@ -110,19 +116,48 @@ namespace nanoFramework.Tools.nFBot
                     break;
             }
 
-            MainAsync().ConfigureAwait(false).GetAwaiter().GetResult();
-        }
+            var builder = new HostBuilder()
+                .ConfigureAppConfiguration(b => b.AddCommandLine(args))
+                .ConfigureLogging((context,
+                                   b) =>
+                {
+                if (context.Configuration["environment"] == Environments.Development)
+                    {
+                        b.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Debug);
+                        b.AddConsole();
+                    }
+                    else
+                    {
+                        b.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Information);
 
-        private static async Task MainAsync()
-        {
-            ServiceCollection.AddSingleton(_config);
+                        // If this key exists in any config, use it to enable App Insights
+                        string appInsightsKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
+                        if (!string.IsNullOrEmpty(appInsightsKey))
+                        {
+                            b.AddApplicationInsightsWebJobs(o => o.InstrumentationKey = appInsightsKey);
+                        }
+                    }
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddSingleton(_config);
+                })
+                .ConfigureWebJobs(webJobConfiguration =>
+                {
+                    webJobConfiguration.AddAzureStorageCoreServices();
+                    webJobConfiguration.AddAzureStorage();
+                    webJobConfiguration.AddTimers();
+                })
+                .UseConsoleLifetime();
 
+            //  TODO
+            // mode this to a webjob method
             _discord = new DiscordClient(new DiscordConfiguration
             {
                 Token = _config.Token,
                 TokenType = TokenType.Bot,
                 UseInternalLogHandler = true,
-                LogLevel = LogLevel.Debug
+                LogLevel = DSharpPlus.LogLevel.Debug
             });
 
             _commands = _discord.UseCommandsNext(new CommandsNextConfiguration
@@ -142,14 +177,20 @@ namespace nanoFramework.Tools.nFBot
             _commands.RegisterCommands<AdminModule>();
             _commands.RegisterCommands<HelpModule>();
             _commands.RegisterCommands<FaqModule>();
-            
+
             _discord.GuildMemberAdded += DiscordOnGuildMemberAdded;
 
             _discord.Ready += InitialStart;
 
             await _discord.ConnectAsync();
 
-            await Task.Delay(-1);
+            /////////////////////////////////////////
+
+            var host = builder.Build();
+            using (host)
+            {
+                await host.RunAsync();
+            }
         }
 
         private static async Task DiscordOnGuildMemberAdded(GuildMemberAddEventArgs e)
