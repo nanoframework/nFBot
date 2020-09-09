@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 
-namespace nFBot.Extensions
+namespace nanoFramework.Tools.nFBot.Extensions
 {
     public static class CommandContextExtensions
     {

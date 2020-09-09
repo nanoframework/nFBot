@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace nFBot.Core.Entities.Configurations
+namespace nanoFramework.Tools.nFBot.Core.Entities.Configurations
 {
     public class FaqEntityConfiguration : IEntityTypeConfiguration<FaqEntity>
     {

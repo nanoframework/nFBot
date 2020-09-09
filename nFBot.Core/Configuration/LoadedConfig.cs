@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace nFBot.Core.Configuration
+namespace nanoFramework.Tools.nFBot.Core.Configuration
 {
     public class LoadedConfig
     {

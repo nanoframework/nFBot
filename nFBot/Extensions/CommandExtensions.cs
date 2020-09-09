@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using DSharpPlus.CommandsNext;
-using nFBot.Attributes;
+using nanoFramework.Tools.nFBot.Attributes;
 
-namespace nFBot.Extensions
+namespace nanoFramework.Tools.nFBot.Extensions
 {
     public static class CommandExtensions
     {

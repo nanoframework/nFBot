@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
-using nFBot.Attributes;
-using nFBot.Core.Configuration;
-using nFBot.Core.Models;
-using nFBot.Core.Providers;
+using nanoFramework.Tools.nFBot.Attributes;
+using nanoFramework.Tools.nFBot.Core.Configuration;
+using nanoFramework.Tools.nFBot.Core.Models;
+using nanoFramework.Tools.nFBot.Core.Providers;
 
 
-namespace nFBot.Modules
+namespace nanoFramework.Tools.nFBot.Modules
 {
     public class FaqModule : BaseCommandModule
     {

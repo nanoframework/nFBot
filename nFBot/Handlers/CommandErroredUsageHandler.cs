@@ -2,10 +2,10 @@
 using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
-using nFBot.Exceptions;
-using nFBot.Extensions;
+using nanoFramework.Tools.nFBot.Exceptions;
+using nanoFramework.Tools.nFBot.Extensions;
 
-namespace nFBot.Handlers
+namespace nanoFramework.Tools.nFBot.Handlers
 {
     public static class CommandErroredUsageHandler
     {

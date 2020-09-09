@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nFBot.Attributes
+namespace nanoFramework.Tools.nFBot.Attributes
 {
     public class UsageAttribute : Attribute
     {

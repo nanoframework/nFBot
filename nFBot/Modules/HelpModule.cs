@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
-using nFBot.Core.Configuration;
+using nanoFramework.Tools.nFBot.Core.Configuration;
 
-namespace nFBot.Modules
+namespace nanoFramework.Tools.nFBot.Modules
 {
     public class HelpModule : BaseCommandModule
     {

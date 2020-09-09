@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using nFBot.Core.Models;
+using nanoFramework.Tools.nFBot.Core.Models;
 
-namespace nFBot.Core.Providers
+namespace nanoFramework.Tools.nFBot.Core.Providers
 {
     public interface IFaqProvider
     {

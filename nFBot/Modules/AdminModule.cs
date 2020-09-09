@@ -5,11 +5,11 @@ using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using Microsoft.EntityFrameworkCore;
-using nFBot.Core.Configuration;
-using nFBot.Core.Data;
-using nFBot.Extensions;
+using nanoFramework.Tools.nFBot.Core.Configuration;
+using nanoFramework.Tools.nFBot.Core.Data;
+using nanoFramework.Tools.nFBot.Extensions;
 
-namespace nFBot.Modules
+namespace nanoFramework.Tools.nFBot.Modules
 {
     public class AdminModule : BaseCommandModule
     {

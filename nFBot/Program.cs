@@ -9,14 +9,14 @@ using DSharpPlus.EventArgs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using nFBot.Core.Configuration;
-using nFBot.Core.Data;
-using nFBot.Core.Providers;
-using nFBot.Handlers;
-using nFBot.Jobs;
-using nFBot.Modules;
+using nanoFramework.Tools.nFBot.Core.Configuration;
+using nanoFramework.Tools.nFBot.Core.Data;
+using nanoFramework.Tools.nFBot.Core.Providers;
+using nanoFramework.Tools.nFBot.Handlers;
+using nanoFramework.Tools.nFBot.Modules;
+using nanoFramework.Tools.nFBot.Jobs;
 
-namespace nFBot
+namespace nanoFramework.Tools.nFBot
 {
     class Program
     {

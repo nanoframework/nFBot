@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nFBot.Exceptions
+namespace nanoFramework.Tools.nFBot.Exceptions
 {
     public class InvalidUsageException : Exception
     {

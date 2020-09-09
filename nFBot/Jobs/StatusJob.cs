@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.Entities;
-using nFBot.Core.Configuration;
+using nanoFramework.Tools.nFBot.Core.Configuration;
 
-namespace nFBot.Jobs
+namespace nanoFramework.Tools.nFBot.Jobs
 {
     public static class StatusJob
     {

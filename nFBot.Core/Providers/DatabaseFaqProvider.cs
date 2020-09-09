@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using nFBot.Core.Data;
-using nFBot.Core.Entities;
-using nFBot.Core.Models;
+using nanoFramework.Tools.nFBot.Core.Data;
+using nanoFramework.Tools.nFBot.Core.Entities;
+using nanoFramework.Tools.nFBot.Core.Models;
 
-namespace nFBot.Core.Providers
+namespace nanoFramework.Tools.nFBot.Core.Providers
 {
     public class DatabaseFaqProvider : IFaqProvider
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nFBot.Core.Models
+namespace nanoFramework.Tools.nFBot.Core.Models
 {
     public class Faq
     {

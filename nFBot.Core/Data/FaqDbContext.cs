@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using nFBot.Core.Entities;
+using nanoFramework.Tools.nFBot.Core.Entities;
 
-namespace nFBot.Core.Data
+namespace nanoFramework.Tools.nFBot.Core.Data
 {
     public class FaqDbContext : DbContext
     {

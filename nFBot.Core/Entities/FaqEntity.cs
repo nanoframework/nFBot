@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nFBot.Core.Entities
+namespace nanoFramework.Tools.nFBot.Core.Entities
 {
     public class FaqEntity
     {
