@@ -26,7 +26,7 @@ The nFBot is designed to be deployed on Azure as a continuous WebJob.
 
 ## License
 
-The **nanoFramework** Class Libraries are licensed under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
+The **nanoFramework** nFBot is licensed under the [MIT license](LICENSE.md).
 
 ## Code of Conduct
 
